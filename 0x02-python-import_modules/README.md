@@ -1,5 +1,4 @@
-    print("")
-n - import & modules
+# 0x02. Python - import & modules
 
 
 ## Resources
@@ -435,4 +434,3 @@ guillaume@ubuntu:~/0x02$
 ```
 
 Copyright © 2021 Holberton School. All rights reserved.
-
