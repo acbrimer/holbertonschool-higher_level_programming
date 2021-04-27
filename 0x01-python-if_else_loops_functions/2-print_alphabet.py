@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print("{}".format("".join(map(chr, list(range(97, 124))))), end="")
+for c in range(97, 124):
+    print("{}".format(chr(c)), end="")
