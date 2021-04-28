@@ -1,3 +1,3 @@
-#!/usr/bin/python3
-import os
-os.write(1, str.encode("#pythoniscool\n"))
+#!/usr/bin/python
+from __future__ import print_function
+print('#pythoniscool', end='\n')
