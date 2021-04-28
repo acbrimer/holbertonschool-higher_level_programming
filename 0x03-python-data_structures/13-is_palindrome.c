@@ -8,30 +8,35 @@
 */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tail = *head, *tmp = *head;
-	int *list_items = NULL;
-	unsigned int list_len, i;
-	int palindrome = 1;
+	listint_t *tail = *head, *rev = *head, *next, *prev = NULL;
+	unsigned int list_len, h_len, i;
+	int p = 1;
 
 	if (head == NULL || *head == NULL)
 		return (1);
 	/* get total length of linked list */
 	for (list_len = 0; tail; list_len++)
 		tail = tail->next;
-	list_items = malloc(sizeof(int) * ((list_len / 2) + 1));
-	if (list_items == NULL)
-		return (0);
-	/* save first half of list values to array in reverse order */
-	for (i = 0; i < (list_len / 2); i++, tmp = tmp->next)
-		list_items[(list_len / 2) - i - 1] = tmp->n;
-	/* skip middle number for odd lengths */
+	h_len = list_len / 2;
+	/* set rev to halfway point in linked list */
+	for (i = 0; i < h_len; i++)
+		rev = rev->next;
+	/* skip middle item for odd number linked lists */
 	if (list_len % 2 != 0)
-		tmp = tmp->next;
-	/* compare second half of linked list to vals in list_items */
-	for (i = 0; tmp && palindrome == 1; i++, tmp = tmp->next)
-		if (tmp->n != list_items[i])
-			palindrome = 0;
-	free(list_items);
+		rev = rev->next;
+	/* reverse from half point node rev */
+	while (rev)
+	{
+		next = rev->next;
+		rev->next = prev;
+		prev = rev;
+		rev = next;
+	}
+	rev = prev;
+	/* compare reversed second half of list to first half */
+	for (i = 0; i < h_len &&  p == 1; i++, *head = (*head)->next, rev = rev->next)
+		if (rev->n != (*head)->n)
+			p = 0;
 
-	return (palindrome);
+	return (p);
 }
