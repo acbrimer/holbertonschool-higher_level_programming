@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-from __future__ import print_function
-print('#pythoniscool')
+__import__('os').write(1, "#pythoniscool\n".encode("utf-8"))
