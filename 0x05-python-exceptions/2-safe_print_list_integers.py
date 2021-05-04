@@ -2,6 +2,7 @@
 def safe_print_list_integers(my_list=[], x=0):
     n = 0
     if x == 0:
+        print()
         return n
     for i in range(x):
         v = my_list[i]
