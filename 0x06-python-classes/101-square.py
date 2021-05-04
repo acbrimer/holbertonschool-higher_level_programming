@@ -64,14 +64,15 @@ class Square:
                 "\n".join(
                     [(" " * self.__position[0]) + "#" * self.__size
                      for c in range(self.__size)]))
+
     def __str__(self):
         if self.__size == 0:
             return ""
         else:
-            return ("\n".join(["" for r in range(self.__position[1])]) +
-            "\n".join(
-                    [(" " * self.__position[0]) + "#" * self.__size
-                     for c in range(self.__size)]))
-            
+            return (("\n" * self.__position[1]) +
+                    "\n".join(
+                        [(" " * self.__position[0]) + "#" * self.__size
+                         for c in range(self.__size)]))
+
     def area(self):
         return self.__size ** 2
