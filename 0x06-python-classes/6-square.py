@@ -55,12 +55,15 @@ class Square:
             self.__position = value
 
     def my_print(self):
-        for y in range(self.__position[1]):
+        if self.__size == 0:
             print()
-        print(
-            "\n".join(
-                [(" " * self.__position[0]) + "#" * self.__size
-                 for c in range(self.__size)]))
+        else:
+            for y in range(self.__position[1]):
+                print()
+            print(
+                "\n".join(
+                    [(" " * self.__position[0]) + "#" * self.__size
+                     for c in range(self.__size)]))
 
     def area(self):
         return self.__size ** 2
