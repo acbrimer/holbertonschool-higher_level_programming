@@ -43,6 +43,8 @@ class Rectangle:
         return ((self.__width * 2) + (self.__height * 2), 0)[self.area() == 0]
 
     def __str__(self):
+        if self.area() == 0:
+            return ""
         return "\n".join([("#" * self.__width) for r in range(self.__height)])
 
     def __init__(self, width=0, height=0):
