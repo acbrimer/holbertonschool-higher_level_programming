@@ -38,8 +38,10 @@ class Rectangle:
 
     def area(self):
         return self.__width * self.__height
+
     def perimeter(self):
-        return (self.__width * 2) + (self.__height * 2)
+        return ((self.__width * 2) + (self.__height * 2), 0)[self.area() == 0]
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
