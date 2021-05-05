@@ -63,7 +63,7 @@ class SinglyLinkedList:
 
     def __str__(self):
         if self.__head is None:
-            return "None"
+            return ""
         current = self.__head
         s = []
         while current is not None:
