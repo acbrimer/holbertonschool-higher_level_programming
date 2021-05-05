@@ -7,8 +7,14 @@ class Node:
     """ Holds node-level data for linked list """
 
     def __init__(self, data, next_node=None):
-        self.__data = data
-        self.__next_node = next_node
+        if not isinstance(data, int):
+            raise TypeError("data must be an integer")
+        else:
+            self.__data = data
+        if next_node is not None and not isinstance(next_node, Node):
+            raise TypeError("next_node must be a Node object")
+        else:
+            self.__next_node = next_node
 
     @property
     def data(self):
@@ -18,8 +24,8 @@ class Node:
     def data(self, value):
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
-            return
-        self.__data = value
+        else:
+            self.__data = value
 
     @property
     def next_node(self):
@@ -29,8 +35,8 @@ class Node:
     def next_node(self, value):
         if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
-            return
-        self.__next_node = value
+        else:
+            self.__next_node = value
 
 
 class SinglyLinkedList:
