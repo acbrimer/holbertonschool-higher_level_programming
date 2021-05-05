@@ -48,7 +48,7 @@ class Rectangle:
     def __str__(self):
         if self.area() == 0:
             return ""
-        s = str(Rectangle.print_symbol)
+        s = str(self.print_symbol)
         return "\n".join(
             [s * self.__width for r in range(self.__height)])
 
