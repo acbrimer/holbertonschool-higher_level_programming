@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+""" Module for matrix divide function """
+
+
 def matrix_divided(matrix, div):
+    """ Function to divide each number in matrix by div """
+
     if div == 0:
         raise ZeroDivisionError("division by zero")
     if not isinstance(div, (int, float)):
