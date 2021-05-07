@@ -31,7 +31,7 @@ def matrix_mul(m_a, m_b):
                 raise ValueError("m_b should contain only integers or floats")
     if max(map(lambda i: len(i), m_a)) != min(map(lambda i: len(i), m_a)):
         raise TypeError("each row of m_a must be of the same size")
-    if max(map(lambda i: len(i), m_a)) != min(map(lambda i: len(i), m_b)):
+    if max(map(lambda i: len(i), m_b)) != min(map(lambda i: len(i), m_b)):
         raise TypeError("each row of m_b must be of the same size")
     try:
         w = (len(m_a) + (0, 1)[len(m_a) == 1])
