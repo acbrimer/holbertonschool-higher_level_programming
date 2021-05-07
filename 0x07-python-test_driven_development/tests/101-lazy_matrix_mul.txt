@@ -28,3 +28,12 @@ Tests:
     ValueError: shapes (1,2) and (1,1) not aligned: 2 (dim 1) != 1 (dim 0)
     >>> lazy_matrix_mul([[0]], [[1, 2]])
     array([[0, 0]])
+    >>> lazy_matrix_mul([[1]])
+    Traceback (most recent call last):
+    TypeError: Required argument 'b' (pos 2) not found
+    >>> lazy_matrix_mul()
+    Traceback (most recent call last):
+    TypeError: Required argument 'a' (pos 1) not found
+    >>> lazy_matrix_mul([[1]], [['a']])
+    Traceback (most recent call last):
+    TypeError: invalid data type for einsum
