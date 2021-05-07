@@ -30,7 +30,7 @@ Tests:
     array([[0, 0]])
     >>> lazy_matrix_mul([[1]])
     Traceback (most recent call last):
-    TypeError: Required argument 'b' (pos 2) not found
+    TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
     >>> lazy_matrix_mul()
     Traceback (most recent call last):
     TypeError: Required argument 'a' (pos 1) not found
