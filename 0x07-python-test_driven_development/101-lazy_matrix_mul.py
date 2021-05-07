@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-""" Module for calling numpy matmul """
+import numpy as np
 
-from numpy import np
+
+""" Module for calling numpy matmul """
 
 
 def lazy_matrix_mul(m_a, m_b):
