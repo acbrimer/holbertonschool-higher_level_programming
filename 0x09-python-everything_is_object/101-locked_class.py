@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Module for LockedClass"""
 
 @property
 def first_name(self):
@@ -17,6 +18,7 @@ def lc_setattr(self, key, value):
     first_name(value)
     
 LockedClass = type("LockedClass", (str, ), {
+    """ LockedClass-- only accepts first_name """
     "__init__": lc_init,
     "__setattr__": lc_setattr,
     "first_name": first_name
