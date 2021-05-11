@@ -23,3 +23,6 @@ Tests:
     [1, 2, 4, 5, 3, -100]
     >>> my_list.print_sorted()
     [-100, 1, 2, 3, 4, 5]
+    >>> empty_list = MyList()
+    >>> empty_list.print_sorted()
+    []
