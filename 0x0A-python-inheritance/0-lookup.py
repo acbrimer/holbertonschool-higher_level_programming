@@ -4,4 +4,4 @@
 
 def lookup(obj):
     """ Function to return list of attribs & methods in obj """
-    return list(obj.__dict__)
+    return list(dir(obj))
