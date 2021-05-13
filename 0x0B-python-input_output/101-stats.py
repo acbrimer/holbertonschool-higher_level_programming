@@ -19,7 +19,7 @@ class Stats:
         for line in sys.stdin:
             if "^C" == line.rstrip():
                 break
-            if len(line) > 50 and " " in line and len(line.split(" ")):
+            if len(line) > 50 and " " in line and len(line.split(" ")) > 2:
                 size = line.split(" ")[-1][:-1]
                 status = line.split(" ")[-2]
                 if size.isnumeric():
