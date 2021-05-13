@@ -19,11 +19,13 @@ class Stats:
         for line in sys.stdin:
             if "^C" == line.rstrip():
                 break
-            if len(line) > 50:
-                size = int(line.split(" ")[-1][:-1])
+            if len(line) > 50 and " " in line and len(line.split(" ")):
+                size = line.split(" ")[-1][:-1]
                 status = line.split(" ")[-2]
-                self.total_size += size
-                self.status_counts[status] += 1
+                if size.isnumeric():
+                    self.total_size += int(size)
+                if status in self.status_counts.keys():
+                    self.status_counts[status] += 1
                 self.__counter += 1
                 if self.__counter == 10:
                     self.print_vals()
