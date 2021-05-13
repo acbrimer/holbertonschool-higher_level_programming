@@ -1,49 +1,42 @@
 #!/usr/bin/python3
 """
-    Module for stats function
+    Module for Stats class
 """
-
 import sys
-import time
 
 
-def parse_stat(s):
-    """ Returns parsed tuple with (ip, status, size) """
-    return (s.split(" ")[0],
-            int(s.split(" ")[-2]),
-            int(s.split(" ")[-1][0:-1]))
+class Stats:
+    """ Class for reading/aggregating stats from stdin """
+    __counter = 0
 
-def get_stats():
-    """ Reads stdin and prints aggregates every 10 lines until ^C """
-    i = 1
-    log = []
-    try:
-        buff = ""
-        while True:
-            s = sys.stdin.read(1)
-            buff += s
-            if s == "\n":
-                try:
-                    log.append(parse_stat(buff))
-                    i += 1
-                except Exception:
-                    pass
-                buff = ""
-            if i == 10:
-                size = sum(map(lambda l: l[-1], log))
-                print("File size: {}".format(size))
-                for r in sorted(set(map(lambda l: l[-2], log))):
-                    count = list(map(lambda l: l[-2], log)).count(r)
-                    print("{}: {}".format(r, count))
-                i = 1
-    except KeyboardInterrupt:
-        size = sum(map(lambda l: l[-1], log))
-        print("File size: {}".format(size))
-        for r in sorted(set(map(lambda l: l[-2], log))):
-            count = list(map(lambda l: l[-2], log)).count(r)
-            print("{}: {}".format(r, count))
-        sys.stdout.flush()
-        pass
+    def __init__(self):
+        self.total_size = 0
+        self.status_counts = {
+            str(k): 0 for k in [200, 301, 400, 401, 403, 404, 405, 500]}
+        self.get_stdin()
+
+    def get_stdin(self):
+        for line in sys.stdin:
+            if "^C" == line.rstrip():
+                break
+            if len(line) > 50:
+                size = int(line.split(" ")[-1][:-1])
+                status = line.split(" ")[-2]
+                self.total_size += size
+                self.status_counts[status] += 1
+                self.__counter += 1
+                if self.__counter == 10:
+                    self.print_vals()
+                    self.__counter = 0
+
+    def print_vals(self):
+        print("File size: {}".format(self.total_size))
+        for k in sorted(self.status_counts.keys()):
+            if self.status_counts[k] > 0:
+                print("{}: {}".format(k, self.status_counts[k]))
+
+    def __del__(self):
+        self.print_vals()
 
 if __name__ == "__main__":
-    get_stats()
+    s = Stats()
