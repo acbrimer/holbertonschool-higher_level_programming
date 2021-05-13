@@ -7,9 +7,9 @@ def pascal_triangle(n):
     if n <= 0:
         return []
     current = [1]
-    while len(current) < n:
+    while len(current) <= n:
+        yield current
         new = current + [1]
         for i in range(1, len(current)):
             new[i] = current[i - 1] + current[i]
         current = new
-        yield current
