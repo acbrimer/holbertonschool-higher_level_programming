@@ -33,6 +33,9 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("{} must be >= 0".format(attr))
 
+    def area(self):
+        return self.width * self.height
+
     @property
     def width(self):
         return self.__width
