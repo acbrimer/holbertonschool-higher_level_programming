@@ -29,4 +29,4 @@ class Base:
         filename = "{}.json".format(cls.__name__)
         filetext = list(map(lambda o: o.to_dictionary(), list_objs))
         with open(filename, "w") as f:
-            f.write(json.dumps(filetext))
+            f.write(Base.to_json_string(filetext))
