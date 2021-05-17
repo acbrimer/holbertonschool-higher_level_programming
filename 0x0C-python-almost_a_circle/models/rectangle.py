@@ -47,6 +47,14 @@ class Rectangle(Base):
         print("\n".join(
             [" " * self.x + "#" * self.width for i in range(self.height)]))
 
+    def update(self, *args):
+        """ Update attributes in self from args """
+        attrs = ["id", "width", "height", "x", "y"]
+        for ix, arg in enumerate(args):
+            if ix == len(attrs):
+                break
+            setattr(self, attrs[ix], arg)
+
     @property
     def width(self):
         return self.__width
