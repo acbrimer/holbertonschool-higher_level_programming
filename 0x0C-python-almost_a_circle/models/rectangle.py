@@ -36,6 +36,9 @@ class Rectangle(Base):
     def area(self):
         return self.width * self.height
 
+    def display(self):
+        print("\n".join(["#" * self.__width for i in range(self.__height)]))
+
     @property
     def width(self):
         return self.__width
