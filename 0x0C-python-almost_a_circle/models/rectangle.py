@@ -37,6 +37,7 @@ class Rectangle(Base):
         return self.width * self.height
 
     def display(self):
+        """ Prints a representation of Rectangle using '#' """
         print("\n".join(["#" * self.__width for i in range(self.__height)]))
 
     @property
