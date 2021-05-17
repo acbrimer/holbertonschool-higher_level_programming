@@ -27,6 +27,8 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         filename = "{}.json".format(cls.__name__)
-        filetext = list(map(lambda o: o.to_dictionary(), list_objs))
+        filetext = list(
+            map(lambda o: o.to_dictionary(),
+                list_objs)) if list_objs is not None else []
         with open(filename, "w") as f:
             f.write(Base.to_json_string(filetext))
