@@ -63,7 +63,7 @@ class Rectangle(Base):
     def to_dictionary(self):
         """ Prints a dict of rectangle """
         d = self.__dict__
-        t = "_{}__".format(type(self).__name__)
+        t = "_Rectangle__"
         return dict(map(lambda k: (k.replace(t, ""), d[k]), d))
 
     @property

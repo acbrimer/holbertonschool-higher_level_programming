@@ -37,5 +37,12 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def to_dictionary(self):
+        """ Returns a dict of square """
+        d = super().to_dictionary()
+        print(d)
+        d["size"] = d.pop("width")
+        return d
+
     def __str__(self):
-        return super().__str__().split("-")[0] + "- {}".format(self.__size)
+        return super().__str__().split("-")[0] + "- {}".format(self.width)
