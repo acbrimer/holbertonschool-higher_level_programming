@@ -79,3 +79,8 @@ class Rectangle(Base):
     def y(self, value):
         Rectangle.validate_x_y("y", value)
         self.__y = value
+
+    def __str__(self):
+        """ Override for string method """
+        return "[{}] ({}) {}/{} - {}/{}".format(
+            type(self), self.id, self.x, self.y, self.width, self.height)
