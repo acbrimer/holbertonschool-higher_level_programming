@@ -20,7 +20,7 @@ class Rectangle(Base):
     def validate_setter_value(attr, value):
         if not isinstance(value, int):
             raise TypeError("{} must be an integer".format(attr))
-    
+
     @staticmethod
     def validate_width_height(attr, value):
         Rectangle.validate_setter_value(attr, value)
