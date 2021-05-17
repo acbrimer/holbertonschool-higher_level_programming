@@ -32,6 +32,13 @@ class Base:
         return json.loads(json_string)
 
     @classmethod
+    def create(cls, **dictionary):
+        """ Creates a class list of specific type """
+        new = cls(1, 1)
+        new.update(**dictionary)
+        return new
+
+    @classmethod
     def save_to_file(cls, list_objs):
         """ Saves JSON class list to file """
         filename = "{}.json".format(cls.__name__)
