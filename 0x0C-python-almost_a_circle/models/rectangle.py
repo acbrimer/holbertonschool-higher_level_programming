@@ -18,22 +18,26 @@ class Rectangle(Base):
 
     @staticmethod
     def validate_setter_value(attr, value):
+        """ Validation checks for width, height, x, y attributes """
         if not isinstance(value, int):
             raise TypeError("{} must be an integer".format(attr))
 
     @staticmethod
     def validate_width_height(attr, value):
+        """ Value checks for width and height attributes """
         Rectangle.validate_setter_value(attr, value)
         if value <= 0:
             raise ValueError("{} must be > 0".format(attr))
 
     @staticmethod
     def validate_x_y(attr, value):
+        """ Validation checks for x and y attributes """
         Rectangle.validate_setter_value(attr, value)
         if value < 0:
             raise ValueError("{} must be >= 0".format(attr))
 
     def area(self):
+        """ Returns the area of the rectangle """
         return self.width * self.height
 
     def display(self):
