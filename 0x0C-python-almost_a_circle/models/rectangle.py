@@ -42,7 +42,10 @@ class Rectangle(Base):
 
     def display(self):
         """ Prints a representation of Rectangle using '#' """
-        print("\n".join(["#" * self.__width for i in range(self.__height)]))
+        for i in range(self.y):
+            print()
+        print("\n".join(
+            [" " * self.x + "#" * self.width for i in range(self.height)]))
 
     @property
     def width(self):
