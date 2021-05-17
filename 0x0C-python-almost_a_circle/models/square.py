@@ -40,7 +40,6 @@ class Square(Rectangle):
     def to_dictionary(self):
         """ Returns a dict of square """
         d = super().to_dictionary()
-        print(d)
         d["size"] = d.pop("width")
         return d
 
