@@ -60,6 +60,12 @@ class Rectangle(Base):
                 if k in attrs:
                     setattr(self, k, kwargs[k])
 
+    def to_dictionary(self):
+        """ Prints a dict of rectangle """
+        d = self.__dict__
+        t = "_{}__".format(type(self).__name__)
+        return dict(map(lambda k: (k.replace(t, ""), d[k]), d))
+
     @property
     def width(self):
         return self.__width
