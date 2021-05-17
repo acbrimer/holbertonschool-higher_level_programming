@@ -24,8 +24,16 @@ class Base:
             return json.dumps([])
         return json.dumps(list_dictionaries)
 
+    @staticmethod
+    def from_json_string(json_string):
+        """ Converts json string to object list """
+        if json_string is None:
+            return []
+        return json.loads(json_string)
+
     @classmethod
     def save_to_file(cls, list_objs):
+        """ Saves JSON class list to file """
         filename = "{}.json".format(cls.__name__)
         filetext = list(
             map(lambda o: o.to_dictionary(),
