@@ -3,6 +3,7 @@
     Module for Base class
 """
 import json
+import os
 
 
 class Base:
@@ -50,7 +51,7 @@ class Base:
     def load_from_file(cls):
         cls_json = None
         new_classes = []
-        if not os.path.exists("{},json".format(cls__name__)):
+        if not os.path.exists("{},json".format(cls.__name__)):
             return new_classes
         with open("{}.json".format(cls.__name__), "r") as f:
             cls_txt = f.read()
