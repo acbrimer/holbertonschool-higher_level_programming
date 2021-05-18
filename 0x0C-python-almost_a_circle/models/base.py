@@ -50,7 +50,6 @@ class Base:
     def load_from_file(cls):
         cls_json = None
         new_classes = []
-        print("{}.json".format(cls.__name__))
         with open("{}.json".format(cls.__name__), "r") as f:
             cls_txt = f.read()
             cls_json = Base.from_json_string(cls_txt)
