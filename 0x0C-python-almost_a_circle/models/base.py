@@ -4,6 +4,8 @@
 """
 import json
 import os
+import csv
+import collections
 
 
 class Base:
@@ -61,3 +63,20 @@ class Base:
             return list(new_classes)
         except Exception:
             return new_classes
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        d = list(map(lambda o: o.to_dictionary(), list_objs))
+        with open("{}.csv".format(cls.__name__), "w") as f:
+            writer = csv.DictWriter(f, fieldnames=colnames)
+            writer.writeheader()
+            for data in d:
+                writer.writerow(data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        with open("{}.csv".format(cls.__name__)) as f:
+            reader = csv.DictReader(f)
+            dictobj = next(reader)
+            print(dictobj)
+            return dictobj
