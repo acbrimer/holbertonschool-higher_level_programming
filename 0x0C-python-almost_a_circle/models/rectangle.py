@@ -13,9 +13,7 @@ class Rectangle(Base):
         super().__init__(id)
         self.width = width
         self.height = height
-        print("init x: {}".format(x))
         self.x = x
-        print("x: {}".format(self.x))
         self.y = y
 
     @staticmethod
