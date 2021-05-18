@@ -3,7 +3,7 @@
     Module for Rectangle class
 """
 from models.base import Base
-
+import inspect
 
 class Rectangle(Base):
 
@@ -13,7 +13,9 @@ class Rectangle(Base):
         super().__init__(id)
         self.width = width
         self.height = height
+        print("init x: {}".format(x))
         self.x = x
+        print("x: {}".format(self.x))
         self.y = y
 
     @staticmethod
@@ -46,6 +48,11 @@ class Rectangle(Base):
             print()
         print("\n".join(
             [" " * self.x + "#" * self.width for i in range(self.height)]))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ Creates a new class initializad with args in **dictionary """
+        return cls(**dictionary)
 
     def update(self, *args, **kwargs):
         """ Update attributes in self from args """
