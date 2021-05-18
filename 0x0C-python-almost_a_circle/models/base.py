@@ -34,9 +34,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """ Creates a class list of specific type """
-        new = cls(1, 1)
-        new.update(**dictionary)
-        return new
+        return cls(**dictionary)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -47,3 +45,15 @@ class Base:
                 list_objs)) if list_objs is not None else []
         with open(filename, "w") as f:
             f.write(Base.to_json_string(filetext))
+
+    @classmethod
+    def load_from_file(cls):
+        cls_json = None
+        new_classes = []
+        print("{}.json".format(cls.__name__))
+        with open("{}.json".format(cls.__name__), "r") as f:
+            cls_txt = f.read()
+            cls_json = Base.from_json_string(cls_txt)
+        for c in cls_json:
+            new_classes.append(cls(**c))
+        return new_classes

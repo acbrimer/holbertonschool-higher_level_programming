@@ -47,11 +47,6 @@ class Rectangle(Base):
         print("\n".join(
             [" " * self.x + "#" * self.width for i in range(self.height)]))
 
-    @classmethod
-    def create(cls, **dictionary):
-        """ Creates a new class initializad with args in **dictionary """
-        return cls(**dictionary)
-
     def update(self, *args, **kwargs):
         """ Update attributes in self from args """
         attrs = ["id", "width", "height", "x", "y"]
