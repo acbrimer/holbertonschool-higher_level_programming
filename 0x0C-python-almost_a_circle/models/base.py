@@ -55,5 +55,5 @@ class Base:
             cls_txt = f.read()
             cls_json = Base.from_json_string(cls_txt)
         for c in cls_json:
-            new_classes.append(cls(**c))
+            new_classes.append(cls.create(**c))
         return new_classes
