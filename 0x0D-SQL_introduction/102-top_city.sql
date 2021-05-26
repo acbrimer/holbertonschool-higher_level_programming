@@ -10,5 +10,5 @@ FROM
     WHERE t.month in (8, 9)
     GROUP BY t.city
 ) as a
-ORDER BY a.avg_temp
+ORDER BY a.avg_temp desc
 LIMIT 3;
