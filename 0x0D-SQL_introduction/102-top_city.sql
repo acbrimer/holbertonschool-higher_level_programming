@@ -8,6 +8,6 @@ FROM
         , AVG(t.value) as avg_temp
     FROM temperatures as t
     GROUP BY t.city
-    ORDER BY avg_temp desc
 ) as a
+ORDER BY a.avg_temp
 LIMIT 3;
