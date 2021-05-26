@@ -3,5 +3,4 @@ SELECT
     t.score
     , COUNT(t.id) as "number"
 FROM second_table as t
-GROUP BY t.score
-ORDER BY t."number" desc;
+GROUP BY t.score;
