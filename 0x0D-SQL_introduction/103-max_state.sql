@@ -1,12 +1,7 @@
 -- Get max temps
 SELECT
     t.state
-    , m.max_temp
+    , MAX(t.max_temp) as max_temp
 FROM temperatures as t
-INNER JOIN (
-    SELECT
-        MAX(ti.value) as max_temp
-    FROM temperatures as ti
-) as m
-    ON t.value = m.max_temp
+GROUP BY t.state
 ORDER BY t.state;
