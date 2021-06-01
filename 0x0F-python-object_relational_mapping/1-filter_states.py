@@ -30,7 +30,7 @@ def list_states():
         SELECT
         s.*
         FROM states AS s
-        WHERE BINARY s.name like 'N%'
+        WHERE s.name COLLATE latin1_general_cs like 'N%'
         ORDER BY s.id;
         """)
     results = cursor.fetchall()
