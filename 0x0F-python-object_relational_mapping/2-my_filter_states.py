@@ -32,9 +32,9 @@ def list_states():
         SELECT
         s.*
         FROM states AS s
-        WHERE s.name = '%s'
+        WHERE s.name = '{}'
         ORDER BY s.id;
-        """ % p_state)
+        """.format(p_state))
     results = cursor.fetchall()
     for row in results:
         print(row)
