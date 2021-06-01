@@ -15,8 +15,11 @@ def fetch_all():
     with engine.connect() as conn:
         stmt = db.select([State.id, State.name]).limit(1)
         results = conn.execute(stmt)
-        for row in results:
-            print("{}: {}".format(row[0], row[1]))
+        if len(results) == 0:
+            print("Nothing")
+        else:
+            for row in results:
+                print("{}: {}".format(row[0], row[1]))
 
 if __name__ == "__main__":
     fetch_all()
