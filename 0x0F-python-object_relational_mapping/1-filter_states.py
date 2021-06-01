@@ -30,7 +30,7 @@ def list_states():
         SELECT
         s.*
         FROM states AS s
-        WHERE s.name like 'N%'
+        WHERE BINARY s.name like 'N%'
         ORDER BY s.id;
         """)
     results = cursor.fetchall()
