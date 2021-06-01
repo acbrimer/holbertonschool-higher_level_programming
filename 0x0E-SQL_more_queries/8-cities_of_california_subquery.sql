@@ -3,5 +3,5 @@ SELECT
     c.id
     , c.state_id
     , c.name
-FROM hbtn_0d_usa.cities AS c
-    WHERE c.state_id = (SELECT s.id FROM hbtn_0d_usa.states AS s WHERE s.name = 'California' LIMIT 1)
+FROM cities AS c
+    WHERE c.state_id = (SELECT s.id FROM states AS s WHERE s.name = 'California' LIMIT 1)
