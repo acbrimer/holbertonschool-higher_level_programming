@@ -15,7 +15,7 @@ def fetch_all():
     with engine.connect() as conn:
         stmt = db.select([State.id, State.name]).limit(1)
         results = conn.execute(stmt)
-        if len(results) == 0:
+        if not results:
             print("Nothing")
         else:
             for row in results:
