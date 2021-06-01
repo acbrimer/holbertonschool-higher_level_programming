@@ -32,7 +32,7 @@ def list_states():
         SELECT
         s.*
         FROM states AS s
-        WHERE s.name = '{}'
+        WHERE s.name COLLATE latin1_general_cs = '{}'
         ORDER BY s.id;
         """.format(p_state))
     results = cursor.fetchall()
