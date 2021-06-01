@@ -4,5 +4,5 @@ SELECT
     , c.name
     , s.name
 FROM states AS s
-INNER JOIN cities as c
+INNER JOIN cities AS c
     ON s.id = c.state_id
