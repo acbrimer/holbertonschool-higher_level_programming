@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 7-model_state_fetch_all """
+""" 8-model_state_fetch_first """
 from model_state import Base, State
 import sys
 import sqlalchemy as db
