@@ -4,4 +4,4 @@ SELECT
     , c.state_id
     , c.name
 FROM cities AS c
-    WHERE c.state_id = (SELECT s.id FROM states AS s WHERE s.name = 'California' LIMIT 1)
+    WHERE c.state_id IN (SELECT s.id FROM states AS s WHERE s.name = 'California')
