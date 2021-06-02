@@ -15,9 +15,8 @@ def get_states():
                                       ), pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    res = session.query(State).limit(1).all()
-    for row in res:
-        print("{}: {}".format(row.id, row.name))
+    row = session.query(State).first()
+    print("{}: {}".format(row.id, row.name))
 
 if __name__ == "__main__":
     get_states()
