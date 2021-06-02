@@ -5,8 +5,8 @@ import sys
 import sqlalchemy as db
 
 
-def fetch_all():
-    """ Fetches all rows from State """
+def get_first_row():
+    """ Fetches top row from states """
     engine = db.create_engine("mysql+mysqldb://{}:{}@localhost/{}"
                               .format(sys.argv[1],
                                       sys.argv[2],
@@ -22,4 +22,4 @@ def fetch_all():
                 print("{}: {}".format(row[0], row[1]))
 
 if __name__ == "__main__":
-    fetch_all()
+    get_first_row()
