@@ -6,8 +6,8 @@ import sqlalchemy as db
 from sqlalchemy.orm import sessionmaker
 
 
-def get_states():
-    """ Fetches top row from states """
+def insert_states():
+    """ Inserts Louisiana to states """
     engine = db.create_engine("mysql+mysqldb://{}:{}@localhost/{}"
                               .format(sys.argv[1],
                                       sys.argv[2],
@@ -21,4 +21,4 @@ def get_states():
     print(new_state.id)
 
 if __name__ == "__main__":
-    get_states()
+    insert_states()

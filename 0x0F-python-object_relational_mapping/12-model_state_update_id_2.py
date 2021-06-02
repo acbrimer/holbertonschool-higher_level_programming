@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-""" 11-model_state_insert """
+""" 12-model_state_update_id_2 """
 from model_state import Base, State
 import sys
 import sqlalchemy as db
 from sqlalchemy.orm import sessionmaker
 
 
-def get_states():
-    """ Fetches top row from states """
+def update_states():
+    """ Updates state where id == 2 """
     engine = db.create_engine("mysql+mysqldb://{}:{}@localhost/{}"
                               .format(sys.argv[1],
                                       sys.argv[2],
@@ -21,4 +21,4 @@ def get_states():
     session.commit()
 
 if __name__ == "__main__":
-    get_states()
+    update_states()
