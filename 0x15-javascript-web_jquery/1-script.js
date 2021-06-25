@@ -1,3 +1,3 @@
 $('document').ready((e) => {
-    $('header').style.color = "#FF0000";
+    $('header')[0].style.color = "#FF0000";
 });
