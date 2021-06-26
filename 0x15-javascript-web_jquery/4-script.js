@@ -1,7 +1,8 @@
+// Toggles header between red and green text on #toggle_header.click
 $("document").ready((e) => {
+    const header = $('header');
     $("DIV#toggle_header").click((e) => {
-        const cls = $("#red_header").hasClass("red") ? "green" : "red";
-        e.target.removeClass(cls === "red" ? "red" : "green");
-        e.target.addClass(cls);
+        header.toggleClass('green');
+        header.toggleClass('red');
     });
 });
